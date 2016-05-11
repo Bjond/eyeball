@@ -7,9 +7,9 @@ within the _public_ folder. An example report in the public subdirectory name
 _SystemTests_Branch_develop_Wed May 11 12:31:59 EDT 2016_ is provided for testing.
 
 I suggest the following naming convention however you may choose what you wish:
-SystemTests_Branch_<name of branch here>_Date 
+*_SystemTests_Branch_<name of branch here>_Date_*
 
-The date is the default date string provided by the Unix _date_ command. This should
+The date is the default date string provided by the Unix _date_ command. That should
 make things easy.
 
 If you need to setup rails the beginning of the following tutorial is excellent: <http://guides.rubyonrails.org/getting_started.html>
