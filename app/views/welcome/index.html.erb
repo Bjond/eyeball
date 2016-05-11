@@ -1,0 +1,4 @@
+<h1>System Test Reports</h1>
+<% Dir["public/reports/*"].each do |file| %>
+  <li><%= link_to format('Report: %s', file[15..file.length]), '/' + file[7..file.length] + '/index.html' %></li>
+<% end %>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.bjond.utilities.JodaTimeUtilsTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.bjond.utilities.JodaTimeUtilsTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.bjond.utilities.html">com.bjond.utilities</a> &gt; JodaTimeUtilsTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">12</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.080s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testAfterSpanCombination</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanDays</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanHours</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanLargeNums</td>
+<td>0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanMinutes</td>
+<td>0.054s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanMonths</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanSeconds</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanWeeks</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAfterSpanYears</td>
+<td>0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testToPeriod</td>
+<td>0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testToPeriod_Crazies</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testToPeriod_Halves</td>
+<td>0.010s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Minutes:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=3 unit=1 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=4 unit=1 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=5 unit=1 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=2 unit=1 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=1 unit=1 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=0 unit=1 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=2 unit=1 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=1 unit=1 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=0 unit=1 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=3 unit=1 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=4 unit=1 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:03:00.000-04:00 value=5 unit=1 ==&gt; false
+Hours:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=3 unit=2 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=4 unit=2 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=5 unit=2 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=2 unit=2 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=1 unit=2 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=0 unit=2 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=2 unit=2 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=1 unit=2 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=0 unit=2 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=3 unit=2 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=4 unit=2 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T03:00:00.000-04:00 value=5 unit=2 ==&gt; false
+Weeks:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=3 unit=4 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=4 unit=4 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=5 unit=4 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=2 unit=4 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=1 unit=4 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=0 unit=4 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=2 unit=4 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=1 unit=4 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=0 unit=4 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=3 unit=4 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=4 unit=4 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-22T00:00:00.000-04:00 value=5 unit=4 ==&gt; false
+Years:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=3 unit=6 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=4 unit=6 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=5 unit=6 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=2 unit=6 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=1 unit=6 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=0 unit=6 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=2 unit=6 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=1 unit=6 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=0 unit=6 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=3 unit=6 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=4 unit=6 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2018-10-01T00:00:00.000-04:00 value=5 unit=6 ==&gt; false
+Given input (0.5, 6):
+  Expected period: P6M
+  Actual period: P6M
+Given input (0.5, 5):
+  Expected period: P15D
+  Actual period: P15D
+Given input (0.5, 3):
+  Expected period: PT12H
+  Actual period: PT12H
+Given input (0.5, 2):
+  Expected period: PT30M
+  Actual period: PT30M
+Given input (0.5, 1):
+  Expected period: PT30S
+  Actual period: PT30S
+Given input (0.5, 0):
+  Expected period: PT0S
+  Actual period: PT0S
+Seconds:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=3 unit=0 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=4 unit=0 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=5 unit=0 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=2 unit=0 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=1 unit=0 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=0 unit=0 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=2 unit=0 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=1 unit=0 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=0 unit=0 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=3 unit=0 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=4 unit=0 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-01T00:00:03.000-04:00 value=5 unit=0 ==&gt; false
+Result: 2013-11-29T22:59:59.000-05:00
+Months:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=3 unit=5 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=4 unit=5 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=5 unit=5 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=2 unit=5 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=1 unit=5 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=0 unit=5 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=2 unit=5 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=1 unit=5 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=0 unit=5 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=3 unit=5 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=4 unit=5 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2016-01-01T00:00:00.000-05:00 value=5 unit=5 ==&gt; false
+Given input (0.3, 6):
+  Expected period: P3M18D
+  Actual period: P3M18D
+Given input (0.25, 6):
+  Expected period: P3M
+  Actual period: P3M
+Given input (0.173, 6):
+  Expected period: P2M2DT6H43M11S
+  Actual period: P2M2DT6H43M11S
+Given input (3.142, 6):
+  Expected period: P3Y1M21DT2H52M46S
+  Actual period: P3Y1M21DT2H52M46S
+Days:
+After:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=3 unit=3 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=4 unit=3 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=5 unit=3 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=2 unit=3 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=1 unit=3 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=0 unit=3 ==&gt; false
+Before:
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=2 unit=3 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=1 unit=3 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=0 unit=3 ==&gt; true
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=3 unit=3 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=4 unit=3 ==&gt; false
+t=2015-10-01T00:00:00.000-04:00 now=2015-10-04T00:00:00.000-04:00 value=5 unit=3 ==&gt; false
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.11</a> at May 11, 2016 10:33:42 AM</p>
+</div>
+</div>
+</body>
+</html>

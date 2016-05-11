@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.bjond.rules.datomic.TaskTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.bjond.rules.datomic.TaskTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.bjond.rules.datomic.html">com.bjond.rules.datomic</a> &gt; TaskTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.275s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testQuotes</td>
+<td>0.072s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testQuotes2</td>
+<td>0.081s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSimpleTask</td>
+<td>0.122s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>{:p
+ ([?p1 :bjond/id ?pid1]
+  [?p2 :bjond/id ?pid2]
+  [?p2 :bjond/userID ?p2-userid]
+  [?p2 :bjond/entityType :entityType/person]
+  [?p1 :bjond/entityType :entityType/person]),
+ :t
+ ([?t1 :bjond/parentTemplateID &quot;Task Parent 1&quot;]
+  [?t1 :bjond/affiliatedRecords ?pid1]
+  [?t1 :bjond/recipients ?p2-userid]
+  [?t1 :bjond/entityType :entityType/task])}
+
+Result:
+{
+  &quot;metadata&quot; : {
+    &quot;cycleID&quot; : &quot;Evaluation Cycle ID 1&quot;,
+    &quot;timeStamp&quot; : &quot;2000-01-01T00:00:00.000-05:00&quot;,
+    &quot;database&quot; : 1008,
+    &quot;stats&quot; : {
+      &quot;numRules&quot; : 1,
+      &quot;numBranches&quot; : 1,
+      &quot;evaluationTime&quot; : 25,
+      &quot;numActions&quot; : 1,
+      &quot;numEvaluated&quot; : 1,
+      &quot;numErrored&quot; : 0,
+      &quot;numSkipped&quot; : 0,
+      &quot;averageQueryTime&quot; : 9,
+      &quot;maxQueryTime&quot; : 9,
+      &quot;minQueryTime&quot; : 9
+    }
+  },
+  &quot;results&quot; : [ {
+    &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+    &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+    &quot;ruleBranchNumber&quot; : 0,
+    &quot;queryTime&quot; : 9.308106,
+    &quot;actions&quot; : [ {
+      &quot;actionType&quot; : &quot;AssignTask&quot;,
+      &quot;taskParentTemplateID&quot; : &quot;Consequence Task Parent 1&quot;,
+      &quot;recipient&quot; : &quot;User ID 2&quot;,
+      &quot;affiliatedRecord&quot; : &quot;Person ID 1&quot;
+    } ],
+    &quot;skipped&quot; : false
+  } ],
+  &quot;actions&quot; : [ {
+    &quot;actionType&quot; : &quot;AssignTask&quot;,
+    &quot;taskParentTemplateID&quot; : &quot;Consequence Task Parent 1&quot;,
+    &quot;recipient&quot; : &quot;User ID 2&quot;,
+    &quot;affiliatedRecord&quot; : &quot;Person ID 1&quot;
+  } ],
+  &quot;evaluated&quot; : [ {
+    &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+    &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+    &quot;ruleBranchNumber&quot; : 0,
+    &quot;queryTime&quot; : 9.308106,
+    &quot;actions&quot; : [ {
+      &quot;actionType&quot; : &quot;AssignTask&quot;,
+      &quot;taskParentTemplateID&quot; : &quot;Consequence Task Parent 1&quot;,
+      &quot;recipient&quot; : &quot;User ID 2&quot;,
+      &quot;affiliatedRecord&quot; : &quot;Person ID 1&quot;
+    } ],
+    &quot;skipped&quot; : false
+  } ],
+  &quot;errors&quot; : [ ],
+  &quot;skipped&quot; : [ ]
+}
+
+Metadata:
+{
+  &quot;cycleID&quot; : &quot;Evaluation Cycle ID 1&quot;,
+  &quot;timeStamp&quot; : &quot;2000-01-01T00:00:00.000-05:00&quot;,
+  &quot;database&quot; : 1008,
+  &quot;stats&quot; : {
+    &quot;numRules&quot; : 1,
+    &quot;numBranches&quot; : 1,
+    &quot;evaluationTime&quot; : 25,
+    &quot;numActions&quot; : 1,
+    &quot;numEvaluated&quot; : 1,
+    &quot;numErrored&quot; : 0,
+    &quot;numSkipped&quot; : 0,
+    &quot;averageQueryTime&quot; : 9,
+    &quot;maxQueryTime&quot; : 9,
+    &quot;minQueryTime&quot; : 9
+  }
+}
+
+Results:
+[ {
+  &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+  &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+  &quot;ruleBranchNumber&quot; : 0,
+  &quot;queryTime&quot; : 9.308106,
+  &quot;actions&quot; : [ {
+    &quot;actionType&quot; : &quot;AssignTask&quot;,
+    &quot;taskParentTemplateID&quot; : &quot;Consequence Task Parent 1&quot;,
+    &quot;recipient&quot; : &quot;User ID 2&quot;,
+    &quot;affiliatedRecord&quot; : &quot;Person ID 1&quot;
+  } ],
+  &quot;skipped&quot; : false
+} ]
+
+Actions:
+[ {
+  &quot;actionType&quot; : &quot;AssignTask&quot;,
+  &quot;taskParentTemplateID&quot; : &quot;Consequence Task Parent 1&quot;,
+  &quot;recipient&quot; : &quot;User ID 2&quot;,
+  &quot;affiliatedRecord&quot; : &quot;Person ID 1&quot;
+} ]
+{:p
+ ([?p1 :bjond/id ?pid1]
+  [?p2 :bjond/id ?pid2]
+  [?p2 :bjond/userID ?p2-userid]
+  [?p2 :bjond/entityType :entityType/person]
+  [?p1 :bjond/entityType :entityType/person]),
+ :t
+ ([?t1 :bjond/parentTemplateID &quot;Task Parent 1&quot;]
+  [?t1 :bjond/affiliatedRecords ?pid1]
+  [?t1 :bjond/recipients ?p2-userid]
+  [?t1 :bjond/resolutionState :taskResolution/success]
+  [?t1 :bjond/lifeCycleState :taskLifeCycleState/closed]
+  [?t1 :bjond/entityType :entityType/task])}
+
+Result:
+{
+  &quot;metadata&quot; : {
+    &quot;cycleID&quot; : &quot;Evaluation Cycle ID 1&quot;,
+    &quot;timeStamp&quot; : &quot;2000-01-01T00:00:00.000-05:00&quot;,
+    &quot;database&quot; : 1008,
+    &quot;stats&quot; : {
+      &quot;numRules&quot; : 1,
+      &quot;numBranches&quot; : 1,
+      &quot;evaluationTime&quot; : 20,
+      &quot;numActions&quot; : 2,
+      &quot;numEvaluated&quot; : 1,
+      &quot;numErrored&quot; : 0,
+      &quot;numSkipped&quot; : 0,
+      &quot;averageQueryTime&quot; : 7,
+      &quot;maxQueryTime&quot; : 7,
+      &quot;minQueryTime&quot; : 7
+    }
+  },
+  &quot;results&quot; : [ {
+    &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+    &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+    &quot;ruleBranchNumber&quot; : 0,
+    &quot;queryTime&quot; : 7.332732,
+    &quot;actions&quot; : [ {
+      &quot;actionType&quot; : &quot;AddTag&quot;,
+      &quot;personID&quot; : &quot;Person ID 1&quot;,
+      &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+    }, {
+      &quot;actionType&quot; : &quot;AddTag&quot;,
+      &quot;personID&quot; : &quot;Person ID 2&quot;,
+      &quot;tagIDs&quot; : [ &quot;SMILEY&quot; ]
+    } ],
+    &quot;skipped&quot; : false
+  } ],
+  &quot;actions&quot; : [ {
+    &quot;actionType&quot; : &quot;AddTag&quot;,
+    &quot;personID&quot; : &quot;Person ID 1&quot;,
+    &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+  }, {
+    &quot;actionType&quot; : &quot;AddTag&quot;,
+    &quot;personID&quot; : &quot;Person ID 2&quot;,
+    &quot;tagIDs&quot; : [ &quot;SMILEY&quot; ]
+  } ],
+  &quot;evaluated&quot; : [ {
+    &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+    &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+    &quot;ruleBranchNumber&quot; : 0,
+    &quot;queryTime&quot; : 7.332732,
+    &quot;actions&quot; : [ {
+      &quot;actionType&quot; : &quot;AddTag&quot;,
+      &quot;personID&quot; : &quot;Person ID 1&quot;,
+      &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+    }, {
+      &quot;actionType&quot; : &quot;AddTag&quot;,
+      &quot;personID&quot; : &quot;Person ID 2&quot;,
+      &quot;tagIDs&quot; : [ &quot;SMILEY&quot; ]
+    } ],
+    &quot;skipped&quot; : false
+  } ],
+  &quot;errors&quot; : [ ],
+  &quot;skipped&quot; : [ ]
+}
+
+Metadata:
+{
+  &quot;cycleID&quot; : &quot;Evaluation Cycle ID 1&quot;,
+  &quot;timeStamp&quot; : &quot;2000-01-01T00:00:00.000-05:00&quot;,
+  &quot;database&quot; : 1008,
+  &quot;stats&quot; : {
+    &quot;numRules&quot; : 1,
+    &quot;numBranches&quot; : 1,
+    &quot;evaluationTime&quot; : 20,
+    &quot;numActions&quot; : 2,
+    &quot;numEvaluated&quot; : 1,
+    &quot;numErrored&quot; : 0,
+    &quot;numSkipped&quot; : 0,
+    &quot;averageQueryTime&quot; : 7,
+    &quot;maxQueryTime&quot; : 7,
+    &quot;minQueryTime&quot; : 7
+  }
+}
+
+Results:
+[ {
+  &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+  &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+  &quot;ruleBranchNumber&quot; : 0,
+  &quot;queryTime&quot; : 7.332732,
+  &quot;actions&quot; : [ {
+    &quot;actionType&quot; : &quot;AddTag&quot;,
+    &quot;personID&quot; : &quot;Person ID 1&quot;,
+    &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+  }, {
+    &quot;actionType&quot; : &quot;AddTag&quot;,
+    &quot;personID&quot; : &quot;Person ID 2&quot;,
+    &quot;tagIDs&quot; : [ &quot;SMILEY&quot; ]
+  } ],
+  &quot;skipped&quot; : false
+} ]
+
+Actions:
+[ {
+  &quot;actionType&quot; : &quot;AddTag&quot;,
+  &quot;personID&quot; : &quot;Person ID 1&quot;,
+  &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+}, {
+  &quot;actionType&quot; : &quot;AddTag&quot;,
+  &quot;personID&quot; : &quot;Person ID 2&quot;,
+  &quot;tagIDs&quot; : [ &quot;SMILEY&quot; ]
+} ]
+{:p
+ ([?p1 :bjond/id ?pid1]
+  [?p2 :bjond/id ?pid2]
+  [?p2 :bjond/userID ?p2-userid]
+  [?p2 :bjond/entityType :entityType/person]
+  [?p1 :bjond/entityType :entityType/person]),
+ :t
+ ([?t1 :bjond/parentTemplateID &quot;Task Parent 1&quot;]
+  [?t1 :bjond/affiliatedRecords ?pid1]
+  [?t1 :bjond/recipients ?p2-userid]
+  [?t1 :bjond/resolutionState :taskResolution/success]
+  [?t1 :bjond/lifeCycleState :taskLifeCycleState/closed]
+  [?t1 :bjond/entityType :entityType/task])}
+
+Result:
+{
+  &quot;metadata&quot; : {
+    &quot;cycleID&quot; : &quot;Evaluation Cycle ID 1&quot;,
+    &quot;timeStamp&quot; : &quot;2000-01-01T00:00:00.000-05:00&quot;,
+    &quot;database&quot; : 1008,
+    &quot;stats&quot; : {
+      &quot;numRules&quot; : 1,
+      &quot;numBranches&quot; : 1,
+      &quot;evaluationTime&quot; : 17,
+      &quot;numActions&quot; : 1,
+      &quot;numEvaluated&quot; : 1,
+      &quot;numErrored&quot; : 0,
+      &quot;numSkipped&quot; : 0,
+      &quot;averageQueryTime&quot; : 5,
+      &quot;maxQueryTime&quot; : 5,
+      &quot;minQueryTime&quot; : 5
+    }
+  },
+  &quot;results&quot; : [ {
+    &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+    &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+    &quot;ruleBranchNumber&quot; : 0,
+    &quot;queryTime&quot; : 5.220741,
+    &quot;actions&quot; : [ {
+      &quot;actionType&quot; : &quot;AddTag&quot;,
+      &quot;personID&quot; : &quot;Person ID 1&quot;,
+      &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+    } ],
+    &quot;skipped&quot; : false
+  } ],
+  &quot;actions&quot; : [ {
+    &quot;actionType&quot; : &quot;AddTag&quot;,
+    &quot;personID&quot; : &quot;Person ID 1&quot;,
+    &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+  } ],
+  &quot;evaluated&quot; : [ {
+    &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+    &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+    &quot;ruleBranchNumber&quot; : 0,
+    &quot;queryTime&quot; : 5.220741,
+    &quot;actions&quot; : [ {
+      &quot;actionType&quot; : &quot;AddTag&quot;,
+      &quot;personID&quot; : &quot;Person ID 1&quot;,
+      &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+    } ],
+    &quot;skipped&quot; : false
+  } ],
+  &quot;errors&quot; : [ ],
+  &quot;skipped&quot; : [ ]
+}
+
+Metadata:
+{
+  &quot;cycleID&quot; : &quot;Evaluation Cycle ID 1&quot;,
+  &quot;timeStamp&quot; : &quot;2000-01-01T00:00:00.000-05:00&quot;,
+  &quot;database&quot; : 1008,
+  &quot;stats&quot; : {
+    &quot;numRules&quot; : 1,
+    &quot;numBranches&quot; : 1,
+    &quot;evaluationTime&quot; : 17,
+    &quot;numActions&quot; : 1,
+    &quot;numEvaluated&quot; : 1,
+    &quot;numErrored&quot; : 0,
+    &quot;numSkipped&quot; : 0,
+    &quot;averageQueryTime&quot; : 5,
+    &quot;maxQueryTime&quot; : 5,
+    &quot;minQueryTime&quot; : 5
+  }
+}
+
+Results:
+[ {
+  &quot;ruleID&quot; : &quot;Rule Def ID 1&quot;,
+  &quot;ruleName&quot; : &quot;Rule Def Name 1&quot;,
+  &quot;ruleBranchNumber&quot; : 0,
+  &quot;queryTime&quot; : 5.220741,
+  &quot;actions&quot; : [ {
+    &quot;actionType&quot; : &quot;AddTag&quot;,
+    &quot;personID&quot; : &quot;Person ID 1&quot;,
+    &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+  } ],
+  &quot;skipped&quot; : false
+} ]
+
+Actions:
+[ {
+  &quot;actionType&quot; : &quot;AddTag&quot;,
+  &quot;personID&quot; : &quot;Person ID 1&quot;,
+  &quot;tagIDs&quot; : [ &quot;HAPPY&quot; ]
+} ]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.11</a> at May 11, 2016 10:33:42 AM</p>
+</div>
+</div>
+</body>
+</html>
