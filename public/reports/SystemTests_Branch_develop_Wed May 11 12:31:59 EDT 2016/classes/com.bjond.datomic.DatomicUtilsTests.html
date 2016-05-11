@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.bjond.datomic.DatomicUtilsTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.bjond.datomic.DatomicUtilsTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.bjond.datomic.html">com.bjond.datomic</a> &gt; DatomicUtilsTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">14</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">4.249s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testCountOne</td>
+<td>0.080s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCountTwo</td>
+<td>0.073s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCountZero</td>
+<td>0.092s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEnsureParentGroupPartitions</td>
+<td>0.102s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEnumIdents</td>
+<td>0.108s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFindEntityByBjondID</td>
+<td>0.085s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMaybeUpsert_Basic</td>
+<td>0.065s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMaybeUpsert_NoTransaction</td>
+<td>0.119s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMaybeUpsert_TransactionForOne</td>
+<td>0.075s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testPartitionInstallData</td>
+<td>0.101s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testPullEntityByBjondID</td>
+<td>0.115s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testReadEntities</td>
+<td>0.085s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpsertDoesNotUpdateUnchangedEntity</td>
+<td>3.069s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpsertWithTenantDivision</td>
+<td>0.080s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>t: 1018
+DB count: 4
+p1Map: {:db/id 17592186045435, :bjond/id &quot;&lt;&lt;person1&gt;&gt;&quot;, :bjond/classname &quot;MockPerson&quot;, :bjond/entityType {:db/id 93}}
+t2: 1023
+DB2 count: 4
+p1Mp2: {:db/id 17592186045435, :bjond/id &quot;&lt;&lt;person1&gt;&gt;&quot;, :bjond/classname &quot;MockPerson&quot;, :bjond/entityType {:db/id 93}}
+result: {:db-before datomic.db.Db@7fe316b8, :db-after datomic.db.Db@92ae45ca, :tx-data [#datom[13194139534335 50 #inst &quot;2016-05-11T14:05:42.349-00:00&quot; 13194139534335 true]], :tempids {-9223350046623220426 17592186045435}}
+Entity: {:db/id 13194139534335, :db/txInstant #inst &quot;2016-05-11T14:05:42.349-00:00&quot;}
+result: {:db/id 17592186045437, :bjond/id &quot;&lt;&lt;person3&gt;&gt;&quot;, :bjond/userID &quot;&lt;&lt;user_id3&gt;&gt;&quot;}
+result: 17592186045437
+Result: [862017116177404]
+Partition: 196
+Result1: 17592186045435
+Result2: 17592186045436
+TX1: {:db/id 13194139534330, :db/txInstant #inst &quot;2016-05-11T14:05:43.149-00:00&quot;}
+TX2: {:db/id 13194139534332, :db/txInstant #inst &quot;2016-05-11T14:05:43.152-00:00&quot;}
+Result.size(): 0
+Transacting enum ident: [{bjond/missedDeadlineConsequence=:taskMissedDeadlineConsequence/noAction, db/id=#db/id[:db.part/user -1001593]}]
+Transacting enum ident: [{bjond/missedDeadlineConsequence=:taskMissedDeadlineConsequence/fail, db/id=#db/id[:db.part/user -1001594]}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001595], bjond/startDateType=:taskStartDate/immediate}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001596], bjond/startDateType=:taskStartDate/startOn}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001597], bjond/startDateType=:taskStartDate/startNoLaterThan}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001598], bjond/startDateType=:taskStartDate/startNoEarlierThan}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001599], bjond/startDateType=:taskStartDate/startBetween}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001600], bjond/deadlineType=:taskDeadline/none}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001601], bjond/deadlineType=:taskDeadline/date}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001602], bjond/deadlineType=:taskDeadline/elapsedTime}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001603], bjond/deadlineType=:taskDeadline/today}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001604], bjond/deadlineType=:taskDeadline/tomorrow}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/easy, db/id=#db/id[:db.part/user -1001605]}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/routine, db/id=#db/id[:db.part/user -1001606]}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/moderatelyHard, db/id=#db/id[:db.part/user -1001607]}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/hard, db/id=#db/id[:db.part/user -1001608]}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/veryHard, db/id=#db/id[:db.part/user -1001609]}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/extremelyHard, db/id=#db/id[:db.part/user -1001610]}]
+Transacting enum ident: [{bjond/difficulty=:taskDifficulty/hardest, db/id=#db/id[:db.part/user -1001611]}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001612], bjond/failureConsequence=:taskFailureConsequence/continue}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001613], bjond/failureConsequence=:taskFailureConsequence/doNotContinue}]
+Transacting enum ident: [{bjond/lateStartConsequence=:taskLateStartConsequence/noAction, db/id=#db/id[:db.part/user -1001614]}]
+Transacting enum ident: [{bjond/lateStartConsequence=:taskLateStartConsequence/markAsStarted, db/id=#db/id[:db.part/user -1001615]}]
+Transacting enum ident: [{bjond/lateStartConsequence=:taskLateStartConsequence/fail, db/id=#db/id[:db.part/user -1001616]}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001617], bjond/priority=:taskPriority/routine}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001618], bjond/priority=:taskPriority/high}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001619], bjond/priority=:taskPriority/veryHigh}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001620], bjond/priority=:taskPriority/highest}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001621], bjond/durationUnit=:timeUnit/seconds}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001622], bjond/durationUnit=:timeUnit/minutes}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001623], bjond/durationUnit=:timeUnit/hours}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001624], bjond/durationUnit=:timeUnit/days}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001625], bjond/durationUnit=:timeUnit/weeks}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001626], bjond/durationUnit=:timeUnit/months}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001627], bjond/durationUnit=:timeUnit/years}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001628], bjond/lifeCycleState=:taskLifeCycleState/dormant}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001629], bjond/lifeCycleState=:taskLifeCycleState/activated}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001630], bjond/lifeCycleState=:taskLifeCycleState/started}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001631], bjond/lifeCycleState=:taskLifeCycleState/closed}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001632], bjond/resolutionState=:taskResolution/failed}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001633], bjond/resolutionState=:taskResolution/success}]
+Transacting enum ident: [{db/id=#db/id[:db.part/user -1001634], bjond/resolutionState=:taskResolution/canceled}]
+Transacting enum ident: [{bjond/distribution=:taskDistribution/separate, db/id=#db/id[:db.part/user -1001635]}]
+Transacting enum ident: [{bjond/distribution=:taskDistribution/shared, db/id=#db/id[:db.part/user -1001636]}]
+Transacting enum ident: [{bjond/distribution=:taskDistribution/claimable, db/id=#db/id[:db.part/user -1001637]}]
+Transacting enum ident: [{bjond/tagType=:tagType/person, db/id=#db/id[:db.part/user -1001638]}]
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/sagneta/workspace/bjond-health/lib/bjond-clj-standalone-0.1.0-SNAPSHOT.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/sagneta/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-nop/1.7.7/6cca9a3b999ff28b7a35ca762b3197cd7e4c2ad1/slf4j-nop-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/sagneta/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.2/7539c264413b9b1ff9841cd00058c974b7cd1ec9/slf4j-log4j12-1.7.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.helpers.NOPLoggerFactory]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.11</a> at May 11, 2016 10:33:42 AM</p>
+</div>
+</div>
+</body>
+</html>

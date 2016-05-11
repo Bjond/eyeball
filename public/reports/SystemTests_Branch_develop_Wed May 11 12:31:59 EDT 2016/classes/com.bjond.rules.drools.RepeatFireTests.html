@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.bjond.rules.drools.RepeatFireTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.bjond.rules.drools.RepeatFireTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.bjond.rules.drools.html">com.bjond.rules.drools</a> &gt; RepeatFireTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.766s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testSecondCase</td>
+<td>0.213s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSimpleCase</td>
+<td>1.553s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>DRL:
+package com.bjond.rules.drools.drl
+
+import org.apache.log4j.Logger
+import org.picketlink.idm.model.basic.User
+import com.bjond.rules.drools.Collector
+import com.bjond.rules.drools.mock.DroolsStaticFunctions
+import com.bjond.rules.drools.utils.Functions
+import com.bjond.persistence.assessment.*
+import com.bjond.persistence.interfaces.IAssessment
+import com.bjond.persistence.interfaces.Question
+import com.bjond.persistence.interfaces.DateTimeQuestion
+import com.bjond.persistence.interfaces.Person
+import com.bjond.persistence.interfaces.Fact
+import com.bjond.persistence.interfaces.Task
+import com.bjond.persistence.interfaces.IClaimEvent
+import com.bjond.persistence.interfaces.IIntegrationEvent
+import com.bjond.persistence.interfaces.IInpatientEvent
+import com.bjond.persistence.task.BjondTask
+import com.bjond.rules.drools.events.*
+import com.bjond.rules.compiler.TimeUnit
+
+
+rule 'repeat fire simple rule'
+salience 1
+dialect 'mvel'
+no-loop
+when
+  $_collector : Collector()
+  $Primary_Person : Person()
+  $_eventX : IRuleEvent()
+  (
+    $task0 : Task(parentTemplateID == '1234567890', affiliatedRecordsList contains $Primary_Person.id, recipientList contains $Primary_Person.userId, lifeCycleState == com.bjond.persistence.task.BjondTask.TASK_LIFECYCLE_STATES.Closed, resolutionState == com.bjond.persistence.task.BjondTask.TASK_RESOLUTION.Success)
+    and
+    eval( $_collector.addPerson($_eventX.isEventData($task0), '&lt;&lt;fake_rule_id&gt;&gt;', $Primary_Person, '$Primary_Person') )
+  )
+  (
+    $task1 : Task(parentTemplateID == '&lt;&lt;theOtherTemplate&gt;&gt;', recipientList contains $Primary_Person.userId, lifeCycleState == com.bjond.persistence.task.BjondTask.TASK_LIFECYCLE_STATES.Closed, resolutionState == com.bjond.persistence.task.BjondTask.TASK_RESOLUTION.Success, affiliatedRecordsList contains $Primary_Person.id)
+    and
+    eval( $_collector.addPerson($_eventX.isEventData($task1), '&lt;&lt;fake_rule_id&gt;&gt;', $Primary_Person, '$Primary_Person') )
+  )
+then
+  $_collector.addTask('&lt;&lt;fake_rule_id&gt;&gt;', '&lt;&lt;task3ID&gt;', $Primary_Person, '$Primary_Person', $Primary_Person, '$Primary_Person')
+end
+
+
+## All matches: 
+&lt;&lt;fake_rule_id&gt;&gt;: 
+    1. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+    2. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+    3. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+## Relevant: 
+&lt;&lt;fake_rule_id&gt;&gt;: 
+    1. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+    2. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+    3. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+## Result: 
+    1. {&quot;taskID&quot;:&quot;&lt;&lt;task3ID&gt;&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;name&quot;:&quot;One Person&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Primary_Person&quot;,&quot;personID&quot;:&quot;&lt;&lt;person1&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;user_id1&gt;&gt;&quot;}}
+DRL:
+package com.bjond.rules.drools.drl
+
+import org.apache.log4j.Logger
+import org.picketlink.idm.model.basic.User
+import com.bjond.rules.drools.Collector
+import com.bjond.rules.drools.mock.DroolsStaticFunctions
+import com.bjond.rules.drools.utils.Functions
+import com.bjond.persistence.assessment.*
+import com.bjond.persistence.interfaces.IAssessment
+import com.bjond.persistence.interfaces.Question
+import com.bjond.persistence.interfaces.DateTimeQuestion
+import com.bjond.persistence.interfaces.Person
+import com.bjond.persistence.interfaces.Fact
+import com.bjond.persistence.interfaces.Task
+import com.bjond.persistence.interfaces.IClaimEvent
+import com.bjond.persistence.interfaces.IIntegrationEvent
+import com.bjond.persistence.interfaces.IInpatientEvent
+import com.bjond.persistence.task.BjondTask
+import com.bjond.rules.drools.events.*
+import com.bjond.rules.compiler.TimeUnit
+
+
+rule 'repeat fire second rule'
+salience 1
+dialect 'mvel'
+no-loop
+when
+  $_collector : Collector()
+  $Assignee : Person()
+  $Patient : Person()
+  $_eventX : IRuleEvent()
+  (
+    $task0 : Task(parentTemplateID == '&lt;&lt;task1Template&gt;&gt;', affiliatedRecordsList contains $Patient.id, lifeCycleState == com.bjond.persistence.task.BjondTask.TASK_LIFECYCLE_STATES.Closed, resolutionState == com.bjond.persistence.task.BjondTask.TASK_RESOLUTION.Success)
+    and
+    eval( $_collector.addPerson($_eventX.isEventData($task0), '&lt;&lt;fake_rule_id&gt;&gt;', $Assignee, '$Assignee', $Patient, '$Patient') )
+  )
+  (
+    $task1 : Task(parentTemplateID == '&lt;&lt;task2Template&gt;&gt;', recipientList contains $Assignee.userId, affiliatedRecordsList contains $Patient.id, lifeCycleState == com.bjond.persistence.task.BjondTask.TASK_LIFECYCLE_STATES.Closed, resolutionState == com.bjond.persistence.task.BjondTask.TASK_RESOLUTION.Success)
+    and
+    eval( $_collector.addPerson($_eventX.isEventData($task1), '&lt;&lt;fake_rule_id&gt;&gt;', $Assignee, '$Assignee', $Patient, '$Patient') )
+  )
+then
+  $_collector.addTask('&lt;&lt;fake_rule_id&gt;&gt;', 'Task3', $Assignee, '$Assignee', $Patient, '$Patient')
+end
+
+
+## All matches: 
+&lt;&lt;fake_rule_id&gt;&gt;: 
+    1. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    2. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    3. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    4. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Michi&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    5. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Michi&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+## Relevant: 
+&lt;&lt;fake_rule_id&gt;&gt;: 
+    1. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    2. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    3. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    4. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Michi&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    5. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Michi&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+## Result: 
+    1. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+    2. {&quot;taskID&quot;:&quot;Task3&quot;,&quot;recipient&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Michi&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Assignee&quot;,&quot;personID&quot;:&quot;&lt;&lt;Michi.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Michi.UserID&gt;&gt;&quot;},&quot;affiliatedRecord&quot;:{&quot;person&quot;:{&quot;id&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;name&quot;:&quot;Chris&quot;,&quot;tagids&quot;:[],&quot;userId&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;,&quot;tagHitCounts&quot;:{},&quot;medCodes&quot;:[],&quot;rels&quot;:[],&quot;tags&quot;:[],&quot;isTemplate&quot;:false},&quot;binding&quot;:&quot;$Patient&quot;,&quot;personID&quot;:&quot;&lt;&lt;Chris.ID&gt;&gt;&quot;,&quot;userID&quot;:&quot;&lt;&lt;Chris.UserID&gt;&gt;&quot;}}
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/sagneta/workspace/bjond-health/lib/bjond-clj-standalone-0.1.0-SNAPSHOT.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/sagneta/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-nop/1.7.7/6cca9a3b999ff28b7a35ca762b3197cd7e4c2ad1/slf4j-nop-1.7.7.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/sagneta/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.2/7539c264413b9b1ff9841cd00058c974b7cd1ec9/slf4j-log4j12-1.7.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.helpers.NOPLoggerFactory]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.11</a> at May 11, 2016 10:33:42 AM</p>
+</div>
+</div>
+</body>
+</html>
