@@ -7,7 +7,7 @@ within the _public_ folder. An example report in the public subdirectory name
 _SystemTests_Branch_develop_Wed May 11 12:31:59 EDT 2016_ is provided for testing.
 
 I suggest the following naming convention however you may choose what you wish:
-*_SystemTests\_Branch\_<name of branch here>\_Date_*
+SystemTests\_Branch\_<name of branch here>_Date
 
 The date is the default date string provided by the Unix _date_ command. That should
 make things easy.
